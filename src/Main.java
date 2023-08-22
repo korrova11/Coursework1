@@ -14,19 +14,96 @@ public class Main {
         person[5] = new Employee("Сотрудник6", 51300, 5);
         person[6] = new Employee("Сотрудник7", 32000, 1);
         person[7] = new Employee("Сотрудник8", 54000, 4);
-        person[8] = new Employee("Сотрудник9", 37000, 5);
+        person[8] = new Employee("Сотрудник9", 78000, 5);
         person[9] = new Employee("Сотрудник10", 45200, 4);
-        outputConsole( person);//вывод в консоль всех данных о сотрудниках
+        person[3].setSalary(33000);//изменение зарплаты
+        person[2].setDepartment(4);//изменение отдела
 
 
-        }
+        outputConsole(person);//вывод в консоль всех данных о сотрудниках
+        int sumSalary = sumSalary(person);//сумма затрат на зарплпты
+        System.out.println("Сумма затрат на зарплаты в месяц составляет " + sumSalary);
 
-            static void outputConsole(Employee [] arr ) {
-            for (int i = 0; i < 10; i++) {
-                System.out.println(arr [i]);
+        minSalary(person);// вызов метода, определяющего минимальную зарплату
+        maxSalary(person);// вызов метода, определяющего максимальную зарплату
+        middleSalary(sumSalary, person);// вызов метода, определяющего среднюю зарплату
+        outputName(person);
 
-            }
+
+    }
+
+    static void outputConsole(Employee[] arr) {
+        for (int i = 0; i < 10; i++) {
+            System.out.println(arr[i]);
+
         }
 
     }
+
+    static int sumSalary(Employee[] arr) {
+        int sum = 0;
+        for (int i = 0; i < 10; i++) {
+            sum = sum + arr[i].getSalary();
+        }
+        return sum;
+        //System.out.println("Сумма затрат на зарплаты в месяц составляет " + sum);
+
+    }
+
+    static void minSalary(Employee[] arr) {
+        int min = 100000;
+        for (int i = 0; i < 10; i++) {
+            if (arr[i].getSalary() < min) {
+                min = arr[i].getSalary();
+                //int k = i;
+            }
+        }
+        // System.out.println("Сотрудник с минимальной зарплатой равной " +
+        //        min + " является " + arr[k].getName()    );
+
+        for (int j = 0; j < 10; j++) {
+            if (arr[j].getSalary() == min) {
+                System.out.println("Сотрудник с минимальной зарплатой равной " +
+                        min + " является " + arr[j].getName());
+            }
+
+        }
+
+    }
+
+    static void maxSalary(Employee[] arr) {
+        int max = 0;
+        for (int i = 0; i < 10; i++) {
+            if (arr[i].getSalary() > max) {
+                max = arr[i].getSalary();
+                //int k = i;
+            }
+        }
+
+        for (int j = 0; j < 10; j++) {
+            if (arr[j].getSalary() == max) {
+                System.out.println("Сотрудник с максимальной зарплатой равной " +
+                        max + " является " + arr[j].getName());
+            }
+
+        }
+
+
+    }
+
+    static void middleSalary(int sum, Employee[] arr) {
+        int middleSalary = sum / (arr.length);
+        System.out.println("Среднее значение зарплат равно " + middleSalary);
+    }
+
+    static void outputName(Employee[] arr) {
+        for (int i = 0; i < 10; i++) {
+            System.out.println(arr[i].getName());
+
+        }
+    }
+}
+
+
+
 
