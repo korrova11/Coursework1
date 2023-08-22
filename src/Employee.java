@@ -44,10 +44,10 @@ public class Employee {
     @Override
     public String toString() {
         return
-                "id = " + id +
-                ", ФИО сотрудника " + name + '\'' +
-                ", зарплата = " + salary +
-                ", отдел = " + department ;
+                "id = " + getId() +
+                ", ФИО сотрудника " + getName() + '\'' +
+                ", зарплата = " + getSalary() +
+                ", отдел = " + getDepartment() ;
     }
 }
 
