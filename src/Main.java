@@ -19,15 +19,15 @@ public class Main {
         person[3].setSalary(33000);//изменение зарплаты
         person[2].setDepartment(4);//изменение отдела
 
-
         outputConsole(person);//вывод в консоль всех данных о сотрудниках
         int sumSalary = sumSalary(person);//сумма затрат на зарплпты
         System.out.println("Сумма затрат на зарплаты в месяц составляет " + sumSalary);
 
-        minmaxSalary(person);// вызов метода, определяющего минимальную зарплату
-        //maxSalary(person);// вызов метода, определяющего максимальную зарплату
+        minSalary(person);// вызов метода, определяющего минимальную зарплату
+        maxSalary(person);// вызов метода, определяющего максимальную зарплату
         middleSalary(sumSalary, person);// вызов метода, определяющего среднюю зарплату
         outputName(person);
+        //sigma(person);
 
 
     }
@@ -50,56 +50,47 @@ public class Main {
 
     }
 
-    static void minmaxSalary(Employee[] arr) {
+    static void minSalary(Employee[] arr) {
         int min = 100000;
-        int max = 0;
+
         for (int i = 0; i < 10; i++) {
             if (arr[i].getSalary() < min) {
                 min = arr[i].getSalary();
 
             }
-            if (arr[i].getSalary() > max) {
-                max = arr[i].getSalary();
 
-            }
         }
 
 
-          for (int j = 0; j < 10; j++) {
+        for (int j = 0; j < 10; j++) {
             if (arr[j].getSalary() == min) {
                 System.out.println("Сотрудник с минимальной зарплатой равной " +
                         min + " является " + arr[j].getName());
             }
 
-                if (arr[j].getSalary() == max) {
-                        System.out.println("Сотрудник с максимальной зарплатой равной " +
-                                max + " является " + arr[j].getName());
-                    }
+        }
+    }
 
-                }
+
+
+    static void maxSalary(Employee[] arr) {
+        int max = 0;
+       for (int i = 0; i < 10; i++) {
+           if (arr[i].getSalary() > max) {
+               max = arr[i].getSalary();
+           }
+       }
+
+        for (int j = 0; j < 10; j++) {
+            if (arr[j].getSalary() == max) {
+                System.out.println("Сотрудник с максимальной зарплатой равной " +
+                        max + " является " + arr[j].getName());
             }
 
+        }
 
 
-
-    //static void maxSalary(Employee[] arr) {
-     //   int max = 0;
-      //  for (int i = 0; i < 10; i++) {
-      //      if (arr[i].getSalary() > max) {
-        //        max = arr[i].getSalary();
-      //
-      //  }
-
-      //  for (int j = 0; j < 10; j++) {
-     //       if (arr[j].getSalary() == max) {
-       //         System.out.println("Сотрудник с максимальной зарплатой равной " +
-     //                   max + " является " + arr[j].getName());
-      //      }
-
-     //   }
-
-
-    //}
+    }
 
     static void middleSalary(int sum, Employee[] arr) {
         int middleSalary = sum / (arr.length);
@@ -112,6 +103,16 @@ public class Main {
 
         }
     }
+    //static void sigma (Employee []arr) {
+      //  double sig = 0;
+      //  for(Employee elt: arr){
+      //      sig += elt.getSalary();
+     //   }
+     //   System.out.println("Суммочка " + sig);
+   // }
+
+
+
 }
 
 
