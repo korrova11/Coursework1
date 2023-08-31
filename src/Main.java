@@ -27,10 +27,13 @@ public class Main {
         maxSalary(person);// вызов метода, определяющего максимальную зарплату
         middleSalary(sumSalary, person);// вызов метода, определяющего среднюю зарплату
         outputName(person);
-        indexSalary(person,10);//индексация зарплаты всех сотрудников
-        minSalaryDepartment(person,5);
-        //sigma(person);
-
+        indexSalary(person, 10);//индексация зарплаты всех сотрудников
+        minSalaryDepartment(person, 5);
+        sumSalaryDepartment(person, 3);
+        System.out.println("Сумма затрат на зарплаты в месяц в отделе составляет " + sumSalaryDepartment(person, 3));
+        middleSalaryDepartment(person, 4);
+        System.out.println("Средняя зарплата в отделе " + middleSalaryDepartment(person, 4));
+        indexSalaryDepartment(person, 1,5);
 
 
     }
@@ -75,14 +78,13 @@ public class Main {
     }
 
 
-
     static void maxSalary(Employee[] arr) {
         double max = 0;
-          for (int i = 0; i < 10; i++) {
-           if (arr[i].getSalary() > max) {
-               max = arr[i].getSalary();
-           }
-       }
+        for (int i = 0; i < 10; i++) {
+            if (arr[i].getSalary() > max) {
+                max = arr[i].getSalary();
+            }
+        }
 
         for (int j = 0; j < 10; j++) {
             if (arr[j].getSalary() == max) {
@@ -106,38 +108,86 @@ public class Main {
 
         }
     }
-    //static void sigma (Employee []arr) {
-      //  double sig = 0;
-      //  for(Employee elt: arr){
-      //      sig += elt.getSalary();
-     //   }
-     //   System.out.println("Суммочка " + sig);
-   // }
-    static void indexSalary(Employee[] arr,int arg) {
-        for (Employee emp: arr) {
-            emp.setSalary((emp.getSalary()*(100+arg))/100);
 
-            System.out.println(emp.getName() + " зарплата увеличена на "+arg+"%, теперь она равна "+ emp.getSalary());
+    //static void sigma (Employee []arr) {
+    //  double sig = 0;
+    //  for(Employee elt: arr){
+    //      sig += elt.getSalary();
+    //   }
+    //   System.out.println("Суммочка " + sig);
+    // }
+    public static void indexSalary(Employee[] arr, int arg) {
+        for (Employee emp : arr) {
+            emp.setSalary((emp.getSalary() * (100 + arg)) / 100);
+
+            System.out.println(emp.getName() + " зарплата увеличена на " + arg + "%, теперь она равна " + emp.getSalary());
         }
     }
-    static void minSalaryDepartment(Employee[] arr,int arg) {
-     double min=200_000;
-     int k=0;
-        for (int i = 0; i <arr.length ; i++) {
 
-                 if (arr[i].getDepartment() == arg && arr[i].getSalary() < min) {
-             min = arr[i].getSalary();
-              k = i;
-                 }
-                      }
+    public static void minSalaryDepartment(Employee[] arr, int arg) {
+        double min = 200_000;
+        int k = 0;
+        for (int i = 0; i < arr.length; i++) {
 
-        System.out.println("В "+arg+" отделе сотрудником с минимальной зарплатой " +min+ " является " + arr[k].getName());
+            if (arr[i].getDepartment() == arg && arr[i].getSalary() < min) {
+                min = arr[i].getSalary();
+                k = i;
+            }
+        }
+
+        System.out.println("В " + arg + " отделе сотрудником с минимальной зарплатой " + min + " является " + arr[k].getName());
 
 
+    }
 
-         }
+    public static void maxSalaryDepartment(Employee[] arr, int arg) {
+        double max = 0;
+        int k = 0;
+        for (int i = 0; i < arr.length; i++) {
 
-     }
+            if (arr[i].getDepartment() == arg && arr[i].getSalary() > max) {
+                max = arr[i].getSalary();
+                k = i;
+            }
+        }
+
+        System.out.println("В " + arg + " отделе сотрудником с максимальной зарплатой " + max + " является " + arr[k].getName());
+
+
+    }
+
+    public static double sumSalaryDepartment(Employee[] arr, int arg) {
+        double sum = 0;
+        for (Employee employee : arr) {
+            if (employee.getDepartment() == arg) {
+                sum += employee.getSalary();
+            }
+        }
+        return sum;
+
+    }
+
+    public static double middleSalaryDepartment(Employee[] arr, int arg) {
+        int i = 0;
+        for (Employee employee : arr) {
+            if (employee.getDepartment() == arg) {
+                i++;
+            }
+        }
+        return sumSalaryDepartment(arr, arg) / i;
+    }
+
+    public static void indexSalaryDepartment(Employee[] arr,int dep, int arg) {
+        for (Employee emp : arr) {
+            if (emp.getDepartment() == dep) {
+
+                emp.setSalary((emp.getSalary() * (100 + arg)) / 100);
+
+                System.out.println(emp.getName() + " зарплата увеличена на " + arg + "%, теперь она равна " + emp.getSalary());
+            }
+        }
+    }
+}
 
 
 
