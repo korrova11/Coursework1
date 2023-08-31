@@ -34,6 +34,9 @@ public class Main {
         middleSalaryDepartment(person, 4);
         System.out.println("Средняя зарплата в отделе " + middleSalaryDepartment(person, 4));
         indexSalaryDepartment(person, 1,5);
+        outputNameDepartment(person, 2);
+        outputSalaryLess(person, 40000);
+        outputSalaryMore(person, 41000);
 
 
     }
@@ -187,7 +190,34 @@ public class Main {
             }
         }
     }
-}
+    static void outputNameDepartment(Employee[] arr, int arg) {
+        for (Employee emp: arr) {
+            if (emp.getDepartment() == arg) {
+                System.out.println(emp.getName()+", зарплата "+emp.getSalary());
+            }
+        }
+
+        }
+
+    static void outputSalaryLess(Employee[] arr, double less) {
+        System.out.println("Список сотрудников с зарплатой меньше "+ less);
+        for (Employee emp: arr) {
+            if (emp.getSalary()<less){
+                System.out.println(emp.getName()+", зарплата "+emp.getSalary() + ", id "+ emp.getId());
+            }
+        }
+    }
+    static void outputSalaryMore(Employee[] arr, double more) {
+        System.out.println("Список сотрудников с зарплатой больше "+ more);
+        for (Employee emp: arr) {
+            if (emp.getSalary()>=more){
+                System.out.println(emp.getName()+", зарплата "+emp.getSalary() + ", id "+ emp.getId());
+            }
+        }
+    }
+
+
+        }
 
 
 
