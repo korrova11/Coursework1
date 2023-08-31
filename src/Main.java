@@ -97,7 +97,6 @@ public class Main {
 
         }
 
-
     }
 
     static void middleSalary(double sum, Employee[] arr) {
