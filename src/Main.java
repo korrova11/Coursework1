@@ -32,6 +32,7 @@ public class Main {
         //sigma(person);
 
 
+
     }
 
     static void outputConsole(Employee[] arr) {
@@ -77,7 +78,7 @@ public class Main {
 
     static void maxSalary(Employee[] arr) {
         double max = 0;
-       for (int i = 0; i < 10; i++) {
+          for (int i = 0; i < 10; i++) {
            if (arr[i].getSalary() > max) {
                max = arr[i].getSalary();
            }
@@ -135,6 +136,7 @@ public class Main {
 
 
          }
+
      }
 
 
