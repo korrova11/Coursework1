@@ -156,7 +156,6 @@ public class Main {
 
         System.out.println("В " + arg + " отделе сотрудником с максимальной зарплатой " + max + " является " + arr[k].getName());
 
-
     }
 
     public static double sumSalaryDepartment(Employee[] arr, int arg) {
