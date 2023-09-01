@@ -136,7 +136,6 @@ public class Main {
 
        // System.out.println("В " + arg + " отделе сотрудником с минимальной зарплатой " + min + " является " + arr[k].getName());
 
-
     }
 
     public static void maxSalaryDepartment(Employee[] arr, int arg) {
