@@ -28,7 +28,8 @@ public class Main {
         middleSalary(sumSalary, person);// вызов метода, определяющего среднюю зарплату
         outputName(person);
         indexSalary(person, 10);//индексация зарплаты всех сотрудников
-        minSalaryDepartment(person, 5);
+        //minSalaryDepartment(person, 5);
+        System.out.println(minSalaryDepartment(person, 5));
         sumSalaryDepartment(person, 3);
         System.out.println("Сумма затрат на зарплаты в месяц в отделе составляет " + sumSalaryDepartment(person, 3));
         middleSalaryDepartment(person, 4);
@@ -111,13 +112,7 @@ public class Main {
         }
     }
 
-    //static void sigma (Employee []arr) {
-    //  double sig = 0;
-    //  for(Employee elt: arr){
-    //      sig += elt.getSalary();
-    //   }
-    //   System.out.println("Суммочка " + sig);
-    // }
+
     public static void indexSalary(Employee[] arr, int arg) {
         for (Employee emp : arr) {
             emp.setSalary((emp.getSalary() * (100 + arg)) / 100);
@@ -126,7 +121,7 @@ public class Main {
         }
     }
 
-    public static void minSalaryDepartment(Employee[] arr, int arg) {
+    public static String minSalaryDepartment(Employee[] arr, int arg) {
         double min = 200_000;
         int k = 0;
         for (int i = 0; i < arr.length; i++) {
@@ -136,8 +131,10 @@ public class Main {
                 k = i;
             }
         }
+         String minDep = "В " + arg + " отделе сотрудником с минимальной зарплатой " + min + " является " + arr[k].getName();
+        return minDep;
 
-        System.out.println("В " + arg + " отделе сотрудником с минимальной зарплатой " + min + " является " + arr[k].getName());
+       // System.out.println("В " + arg + " отделе сотрудником с минимальной зарплатой " + min + " является " + arr[k].getName());
 
 
     }
